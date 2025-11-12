@@ -1,6 +1,6 @@
 {
   "name": "@jmsalazardev/react-infinite-scroller",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "type": "module",
   "files": [
     "dist"
@@ -10,7 +10,7 @@
   "jsnext:main": "src/InfiniteScroll.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/danbovey/react-infinite-scroller.git"
+    "url": "git://github.com/jmsalazardev/react-infinite-scroller.git"
   },
   "scripts": {
     "build": "mkdirp dist && tsc",
@@ -18,7 +18,7 @@
     "test": "jest test",
     "lint": "NODE_OPTIONS=\"--require ./scripts/shims/structuredClone.js\" eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\" --fix --max-warnings 0",
     "precommit": "lint-staged",
-    "prepare": "husky"
+    "prepare": "npm run build"
   },
   "lint-staged": {
     "{src,test}/*.{js,jsx,ts,tsx}": [
@@ -69,5 +69,11 @@
   },
   "engines": {
     "node": "> 18"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/InfiniteScroll.js",
+      "require": "./dist/InfiniteScroll.js"
+    }
   }
 }
